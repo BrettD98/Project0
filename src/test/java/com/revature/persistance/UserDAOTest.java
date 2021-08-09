@@ -11,7 +11,6 @@ public class UserDAOTest {
     static final Logger logger = Logger.getLogger(UserDAOTest.class);
 
     public static void main(String[] args) {
-
         PatternLayout layout = new PatternLayout("[%p] || %d || %m%n");
 
         ConsoleAppender consoleAppender = new ConsoleAppender();
@@ -31,7 +30,7 @@ public class UserDAOTest {
         //findUserTest();
         //deleteUserTest();
         //updateUserTest();
-        selectAllUserTest();
+        //selectAllUserTest();
     }
 
 

@@ -1,5 +1,9 @@
 package com.revature.persistance;
 
+/**
+ * Generic interface for the Data Access Object
+ * @param <E> generic
+ */
 public interface DAO <E> {
     //CRUD
     //Create
