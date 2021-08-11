@@ -1,7 +1,6 @@
 package com.revature.persistance;
 
 import com.revature.model.User;
-import com.revature.util.LoggingUtil;
 import org.apache.log4j.*;
 import org.junit.Assert;
 import org.junit.Test;

@@ -2,30 +2,62 @@ package com.revature.model;
 
 public class Account {
     private int accountID;
-    private int accountNumber;
-    private int balance;
+    private double balance;
+    private String accountType; //TODO: make this an enum
+    private int userID;
 
-    public Account() {
+    public Account(int accountID, double balance, String accountType, int userID) {
+        this.accountID = accountID;
+        this.balance = balance;
+        this.accountType = accountType;
+        this.userID = userID;
     }
 
-    public Account(int accountNumber, int balance) {
-        this.accountNumber = accountNumber;
+    public Account(double balance, String accountType, int userID) {
         this.balance = balance;
+        this.accountType = accountType;
+        this.userID = userID;
     }
 
     public int getAccountID() {
         return accountID;
     }
+
     public void setAccountID(int accountID) {
         this.accountID = accountID;
     }
-    public int getAccountNumber() {
-        return accountNumber;
-    }
-    public int getBalance() {
+
+    public double getBalance() {
         return balance;
     }
-    public void setBalance(int balance) {
+
+    public void setBalance(double balance) {
         this.balance = balance;
+    }
+
+    public String getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
+    }
+
+    public int getUserID() {
+        return userID;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
+
+    @Override
+    public String toString() {
+        System.out.printf("Account Number: [%d] \t Account Balance: [$%.2f] \t Account Type: [%s]\n", accountID, balance, accountType);
+
+//        return ("Account Number: [" + accountID +
+//                "] Account Balance: [$" + ("%d.2f" balance) +
+//                "] Account Type: [" + accountType + "]");
+        return null;
     }
 }
