@@ -10,6 +10,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class TransactionDAO implements DAO<Transaction>{
+
+    /**
+     * Inserts a Transaction into the transaction table
+     * @param ent Transaction Object being inserted into the table
+     * @return
+     */
     @Override
     public boolean insert(Transaction ent) {
         String sql = "insert into \"Bank\".\"transaction\" (id_from, id_to, amount) values (cast(? as int), cast(? as int), cast(? as float));";
@@ -27,26 +33,35 @@ public class TransactionDAO implements DAO<Transaction>{
         return true;
     }
 
+    //Not Being Used, no need for implementation
     @Override
     public Transaction[] selectAll() {
         return new Transaction[0];
     }
 
+    //Not Being Used, no need for implementation
     @Override
     public Transaction selectBy(String ent) {
         return null;
     }
-
+    //Not Being Used, no need for implementation
     @Override
     public void update(Transaction ent, String toChange, String changeTo) {
 
     }
-
+    //Not Being Used, no need for implementation
     @Override
     public void delete(Transaction ent) {
 
     }
 
+    /**
+     * Overloaded selectall
+     * Gets all transactions that have anything ti do with given account
+     * returns an array of those transactions
+     * @param accountId Account ID given to find transactions
+     * @return Tranaction Array
+     */
     public Transaction[] selectAll(int accountId) {
                 Transaction[] transactionArray = null;
 

@@ -9,15 +9,25 @@ import org.apache.log4j.Logger;
 import java.util.Scanner;
 
 public class TransactionMenu {
+    //Class variables scanner and logger
     Scanner scanner = new Scanner(System.in);
     static final Logger logger = Logger.getLogger(TransactionMenu.class);
 
+    //pointer to transactionService
     private TransactionService transactionService;
 
+    //constructor
     public TransactionMenu(TransactionService transactionService) {
         this.transactionService = transactionService;
     }
 
+    /**
+     * Takes input from user for transaction. Makes sure inputs fall within constrains:, No negatives etc.
+     * accountTo, accountFrom: int: Ids for account involved in the transfer
+     * amount:  double, Amount transferred
+     * calls Transaction Service Transfer method
+     * @param userID Takes userID from User object
+     */
     public void transfer(int userID) {
         int accountTo, accountFrom;
         double amount;
@@ -64,6 +74,12 @@ public class TransactionMenu {
         System.out.println("Transfer Successful.");
     }
 
+    /**
+     * calls Transaction Service GetAllTransaction method
+     * iterates through an array and displays all objects
+     * @param userID    User ID given by user object
+     * @param accountService    accountService object
+     */
     public void viewTransactionHistory(int userID, AccountService accountService) {
         int accountId;
         System.out.print("What account number do you want to view:");

@@ -11,9 +11,9 @@ import java.sql.SQLException;
 
 public class AccountDAO implements DAO<Account>{
     /**
-     *
-     * @param ent
-     * @return
+     * Inserts an Account object into the database table
+     * @param ent Account Object enterd into the database
+     * @return if success
      */
     @Override
     public boolean insert(Account ent) {
@@ -32,11 +32,19 @@ public class AccountDAO implements DAO<Account>{
         return false;
     }
 
+    //Not Being Used, no need for implementation
     @Override
     public Account[] selectAll() {
         return null;
     }
 
+    /**
+     * Overloaded selectAll method
+     * Gets all Accounts that ahve anything to do with userID given
+     * and returns an array of accounts
+     * @param userID ID given by service
+     * @return array of Accounts
+     */
     public Account[] selectAll(int userID) {
         Account[] accounts = null;
         String sql = "select * from \"Bank\".account a where user_id  = cast(? as int);";
@@ -69,6 +77,11 @@ public class AccountDAO implements DAO<Account>{
         return accounts;
     }
 
+    /**
+     * Selects and returns a specific account from the database
+     * @param ent account ID given from the service
+     * @return Account object
+     */
     @Override
     public Account selectBy(String ent) {
         String sql = "select * from \"Bank\".account a where account_id  = cast(? as int);";
@@ -91,6 +104,12 @@ public class AccountDAO implements DAO<Account>{
         return account;
     }
 
+    /**
+     * Updates data for a specific account
+     * @param ent account object being updated
+     * @param toChange the field being updated
+     * @param changeTo data to change the field into
+     */
     @Override
     public void update(Account ent, String toChange, String changeTo) {
         String sql = "update \"Bank\".account set balance = cast(? as float) where account_id = ?;";
@@ -106,6 +125,10 @@ public class AccountDAO implements DAO<Account>{
     }
 
 
+    /**
+     * Removes a specific account from the database
+     * @param ent
+     */
     @Override
     public void delete(Account ent) {
         String sql = "delete from \"Bank\".account  where account_id = cast(? as int);";

@@ -1,5 +1,9 @@
 package com.revature.model;
 
+/**
+ * Transaction Data Model
+ * Overrides toString for better readability
+ */
 public class Transaction {
     private int transactionId;
     private int accountTo;

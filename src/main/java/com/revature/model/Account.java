@@ -1,5 +1,10 @@
 package com.revature.model;
 
+/**
+ * Account Data Model
+ * Overrides toString for better readability
+ */
+
 public class Account {
     private int accountID;
     private double balance;
@@ -54,10 +59,6 @@ public class Account {
     @Override
     public String toString() {
         System.out.printf("Account Number: [%d] \t Account Balance: [$%.2f] \t Account Type: [%s]\n", accountID, balance, accountType);
-
-//        return ("Account Number: [" + accountID +
-//                "] Account Balance: [$" + ("%d.2f" balance) +
-//                "] Account Type: [" + accountType + "]");
         return null;
     }
 }

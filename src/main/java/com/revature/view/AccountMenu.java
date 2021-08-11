@@ -10,15 +10,23 @@ import java.util.Scanner;
 import java.util.SortedMap;
 
 public class AccountMenu {
+    //Class variables Scanner, Logger
     static final Logger logger = Logger.getLogger(AccountMenu.class);
-    AccountService accountService;
     Scanner scanner = new Scanner(System.in);
+    //Pointer to accountService object
+    AccountService accountService;
 
-
+    //Constructor
     public AccountMenu(AccountService accountService) {
         this.accountService = accountService;
     }
 
+    /**
+     * Takes input from user for creating a new account, Checks against constraints
+     * Calls Account Service create account method
+     * @param userID UserID from user object
+     * @return true if account has been created
+     */
     public boolean createAccount(int userID) {
         String accountType = "default";
         double balance = 0.0;
@@ -70,6 +78,11 @@ public class AccountMenu {
         return false;
     }
 
+    /**
+     * Calls account service get all accounts method
+     * iterates through an array and displays all Accounts
+     * @param userID
+     */
     public void showAccounts(int userID) {
         System.out.println("Here are all of your active accounts:");
         Account[] accounts = accountService.getAllAccounts(userID);
@@ -78,6 +91,12 @@ public class AccountMenu {
         }
     }
 
+    /**
+     * takes input for deposit and checks against constraints
+     * makes sure the account exists
+     * calls service deposit method
+     * @param userID
+     */
     public void deposit(int userID) {
         int accountNum;
         boolean exists = false;
@@ -122,6 +141,14 @@ public class AccountMenu {
         System.out.println("Deposit Successful.");
     }
 
+    /**
+     * does the opposite of deposit
+     * makes sure the account exists
+     * makes sure the account has enough to withdraw
+     * calls service deposit method (Withdraw is a deposit but negative)
+     * displays ascii art
+     * @param userID
+     */
     public void withdraw(int userID) {
         int accountNum;
         boolean exists = false;
@@ -181,6 +208,12 @@ public class AccountMenu {
 
     }
 
+    /**
+     * Displays a single account of the users choice
+     * checks against user have access
+     * calls service get single account method
+     * @param userID
+     */
     public void viewSingleAccount(int userID) {
         int accountNum;
         System.out.print("Which account balance to view:");

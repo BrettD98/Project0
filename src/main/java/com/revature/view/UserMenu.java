@@ -16,9 +16,9 @@ public class UserMenu {
     private final UserService userService;
     private final AccountMenu accountMenu;
     private final TransactionMenu transactionMenu;
-    
+    //Added Other two Views because I made UserMenu the main view
 
-
+    //Constructor
     public UserMenu(UserService userService) {
         this.userService = userService;
         AccountDAO accountDAO = new AccountDAO();
@@ -30,6 +30,10 @@ public class UserMenu {
         transactionMenu = new TransactionMenu(transactionService);
     }
 
+    /**
+     * Login menu
+     * allows user to choose to login or register a new user
+     */
     public void initialMenu(){
         System.out.println("1) Login \n" +
                 "2) Register\n" +
@@ -48,6 +52,12 @@ public class UserMenu {
         }
     }
 
+    /**
+     * login menu
+     * compares input username and password against database users
+     * if match, calls loggedMenu()
+     * if no match, calls initialMenu()
+     */
     private void login() {
         System.out.print("Please insert your username:");
         String un = scanner.nextLine();
@@ -62,6 +72,14 @@ public class UserMenu {
         }
     }
 
+    /**
+     * register menu
+     * gathers firstname, lastname, username and password
+     * confirms user password
+     * calls userService.register()
+     * if true, calls loggedMenu()
+     * if false, recursively calls register()
+     */
     private void register() {
         System.out.print("Please enter your first name:");
         String fn = scanner.nextLine();
@@ -82,6 +100,11 @@ public class UserMenu {
         }
     }
 
+    /**
+     * Main menu used for user.
+     * calls corresponding Menu classes and methods according to user input
+     * finally calls itself until user exits
+     */
     private void loggedInMenu() {
         System.out.println("\nWhat would you like to do?" +
                 "\n1)Create a New Bank Account." +

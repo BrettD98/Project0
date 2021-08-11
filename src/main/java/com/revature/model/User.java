@@ -1,5 +1,9 @@
 package com.revature.model;
 
+/**
+ * User Data Model
+ * Overrides toString for better readability
+ */
 public class User {
     private String firstName;
     private String lastName;
